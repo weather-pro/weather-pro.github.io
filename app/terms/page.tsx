@@ -29,10 +29,10 @@ export default function TermsPage() {
             1. Acceptance of Terms
           </h2>
           <p>
-            By accessing or using <strong>WeatherPro</strong> (the
-            “Website”), you agree to be bound by these Terms of Use and all
-            applicable laws and regulations. If you do not agree with any part
-            of these terms, you must not use this website.
+            By accessing or using <strong>WeatherPro</strong> (the “Website”),
+            you agree to be bound by these Terms of Use and all applicable laws
+            and regulations. If you do not agree with any part of these terms,
+            you must not use this website.
           </p>
         </section>
 
@@ -107,9 +107,9 @@ export default function TermsPage() {
           </h2>
           <p>
             We reserve the right to update or modify these Terms of Use at any
-            time without prior notice. Any changes will be effective
-            immediately upon posting on this page. Your continued use of the
-            Website constitutes acceptance of the revised terms.
+            time without prior notice. Any changes will be effective immediately
+            upon posting on this page. Your continued use of the Website
+            constitutes acceptance of the revised terms.
           </p>
         </section>
 
