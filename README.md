@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Weather Pro
+
+A modern, responsive weather forecast application built with Next.js 16, TypeScript, and Tailwind CSS. Get real-time weather updates and detailed forecasts for any location worldwide.
+
+## Features
+
+- 🌤️ Current Weather Conditions
+- 📅 Next Day Weather Forecast
+- ⏰ Hourly Weather Details
+- 🌡️ Temperature in Celsius/Fahrenheit
+- 💨 Wind Speed and Humidity
+- 📍 Location-based Weather Search
+- 📱 Responsive Design
+- 🎨 Beautiful Weather Icons
+
+## Tech Stack
+
+- **Framework**: Next.js 14 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **UI Components**: shadcn/ui
+- **API**: wttr.in Weather Service
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18+ 
+- npm or yarn or pnpm
+
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git https://github.com/weather-pro/weather-pro.github.io.git
+cd weather-pro.github.io
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Start the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open your browser and navigate to `http://localhost:3000` to see the application in action.
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+weather-forecast/
+├── app/
+│   ├── api/
+│   │   └── weather/          # API route for weather data
+│   ├── components/
+│   │   ├── ui/              # shadcn/ui components
+│   │   ├── weather-card.tsx # Weather card component
+│   │   └── weather-icons.tsx # Weather icon mappings
+│   ├── globals.css          # Global styles
+│   ├── layout.tsx          # Root layout
+│   └── page.tsx            # Main page
+├── public/
+│   └── next.svg
+├── types/
+│   └── weather.ts          # TypeScript type definitions
+└── README.md
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## API Usage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The application uses the wttr.in API for weather data. You can access weather information through the following endpoint:
 
-## Deploy on Vercel
+```
+https://wttr.in/${cityName}?format=j1
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Example:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+https://wttr.in/London?format=j1
+```
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
