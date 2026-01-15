@@ -17,7 +17,7 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { AdSense } from "@/components/google/adsense";
+// import { AdSense } from "@/components/google/adsense";
 
 type WeatherData = {
   location: string;
@@ -178,7 +178,7 @@ export default function WeatherPage() {
         </div>
       </section>
       {/* AdSense */}
-      <AdSense adSlot="4415536934"/>
+      {/* <AdSense adSlot="4415536934"/> */}
       {/* AdSense */}
       {error && (
         <div className="max-w-7xl mx-auto px-4 -mt-12 relative z-10">
