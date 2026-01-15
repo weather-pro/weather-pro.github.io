@@ -1,96 +1,46 @@
-import Link from "next/link";
-import ThemeToggle from "./components/ThemeToggle";
-import "./globals.css";
+import type React from "react"
+import type { Metadata } from "next"
+import { Geist, Geist_Mono } from "next/font/google"
+import { Analytics } from "@vercel/analytics/next"
+import "./globals.css"
+
+const _geist = Geist({ subsets: ["latin"] })
+const _geistMono = Geist_Mono({ subsets: ["latin"] })
+
+export const metadata: Metadata = {
+  title: "Weather Forecast - Your Trusted Weather Source",
+  description: "Get accurate weather forecasts, current conditions, and 7-day predictions for your location",
+  generator: "v0.app",
+  icons: {
+    icon: [
+      {
+        url: "/icon-light-32x32.png",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/icon-dark-32x32.png",
+        media: "(prefers-color-scheme: dark)",
+      },
+      {
+        url: "/icon.svg",
+        type: "image/svg+xml",
+      },
+    ],
+    apple: "/apple-icon.png",
+  },
+}
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode;
-}) {
+}: Readonly<{
+  children: React.ReactNode
+}>) {
   return (
     <html lang="en">
-      <body style={{ margin: 0, fontFamily: "system-ui, sans-serif" }}>
-        {/* Navbar */}
-        <header
-          style={{
-            height: 64,
-            padding: "0 24px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-
-            borderBottom: "1px solid var(--border)",
-            position: "sticky",
-            top: 0,
-            zIndex: 100,
-          }}
-        >
-          <Link
-            href="/"
-            style={{
-              fontSize: 20,
-              fontWeight: 700,
-              textDecoration: "none",
-              color: "var(--color-text)",
-            }}
-          >
-            🌤️ WeatherPro
-          </Link>
-          <ThemeToggle />
-        </header>
-
-        {/* main */}
-        <div
-          style={{
-            minHeight: "100vh",
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
-          <div style={{ flex: 1 }}>{children}</div>
-
-          {/* Footer */}
-          <footer
-            style={{
-              padding: "20px 16px",
-              textAlign: "center",
-              fontSize: 13,
-              color: "#6b7280",
-              borderTop: "1px solid var(--border)",
-            }}
-          >
-            <div style={{ marginBottom: 6 }}>🌤️ WeatherPro</div>
-            <div>
-              © {new Date().getFullYear()} WeatherPro. All rights reserved.
-            </div>
-            <div style={{ marginTop: 6, fontSize: 12 }}>
-              <a
-                href="/terms"
-                style={{
-                  margin: "0 8px",
-                  color: "var(--text-secondary)",
-                  textDecoration: "none",
-                  textUnderlinePosition: "under",
-                }}
-              >
-                Terms of Use
-              </a>
-              |
-              <a
-                href="/privacy"
-                style={{
-                  margin: "0 8px",
-                  color: "var(--text-secondary)",
-                  textDecoration: "none",
-                  textUnderlinePosition: "under",
-                }}
-              >
-                Privacy Policy
-              </a>
-            </div>
-          </footer>
-        </div>
+      <body className={`font-sans antialiased`}>
+        {children}
+        <Analytics />
       </body>
     </html>
-  );
+  )
 }
