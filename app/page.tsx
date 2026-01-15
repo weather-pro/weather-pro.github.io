@@ -36,6 +36,14 @@ type WeatherData = {
     mintempF: number;
     mintempC: number;
     weatherDesc: string;
+    hourly: Array<{
+      time: string;
+      tempF: number;
+      tempC: number;
+      weatherDesc: string;
+      windspeedMiles: number;
+      humidity: number;
+    }>;
   }>;
 };
 
@@ -84,7 +92,15 @@ export default function WeatherPage() {
           maxtempC: Number.parseInt(day.maxtempC),
           mintempF: Number.parseInt(day.mintempF),
           mintempC: Number.parseInt(day.mintempC),
-          weatherDesc: day.hourly[4]?.weatherDesc[0]?.value || "Partly Cloudy",
+          weatherDesc: day.hourly[4]?.weatherDesc[0]?.value || "No Data",
+          hourly: day.hourly.map((hour: any) => ({
+            time: hour.time,
+            tempF: Number.parseInt(hour.tempF),
+            tempC: Number.parseInt(hour.tempC),
+            weatherDesc: hour.weatherDesc[0].value,
+            windspeedMiles: Number.parseInt(hour.windspeedMiles),
+            humidity: Number.parseInt(hour.humidity),
+          })),
         })),
       };
 
@@ -127,7 +143,7 @@ export default function WeatherPage() {
         </div>
         <div className="relative max-w-4xl mx-auto text-center">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-balance">
-            Weather Forecast
+            Weather Pro
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-primary-foreground/90">
             Your trusted source for accurate weather information
@@ -346,6 +362,38 @@ export default function WeatherPage() {
                   </div>
                 </CardContent>
               </Card>
+            </div>
+          </section>
+
+          {/* Hourly Weather */}
+          <section className="max-w-7xl mx-auto px-4 py-12">
+            <h3 className="text-2xl font-semibold mb-6">Hourly Forecast</h3>
+            <div className="overflow-x-auto">
+              <div className="flex gap-4 pb-4">
+                {weatherData.forecast[0].hourly.map((hour) => {
+                  const Icon = getWeatherIcon(hour.weatherDesc);
+                  return (
+                    <Card key={hour.time} className="min-w-[120px] text-center">
+                      <CardContent className="p-4">
+                        <p className="text-sm text-muted-foreground mb-2">
+                          {hour.time.slice(0, 2)}:00
+                        </p>
+                        <div className="flex justify-center mb-2">
+                          <div className="p-2 bg-primary/10 rounded-full">
+                            <Icon className="h-6 w-6 text-primary" />
+                          </div>
+                        </div>
+                        <p className="text-lg font-semibold mb-1">
+                          {getTemp(hour.tempC, hour.tempF)}°
+                        </p>
+                        <p className="text-xs text-muted-foreground">
+                          {hour.weatherDesc}
+                        </p>
+                      </CardContent>
+                    </Card>
+                  );
+                })}
+              </div>
             </div>
           </section>
 
