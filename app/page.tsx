@@ -389,7 +389,7 @@ export default function WeatherPage() {
           <p className="text-center text-muted-foreground">
             © {new Date().getFullYear()} WeatherPro. All rights reserved.
           </p>
-          <div style={{ marginTop: 6, fontSize: 12 }}>
+          <div className="text-center text-muted-foreground">
             <a
               href="/terms"
               style={{
