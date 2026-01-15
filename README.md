@@ -52,21 +52,24 @@ npm run dev
 ## Project Structure
 
 ```
-weather-forecast/
+weather-pro/
 ├── app/
-│   ├── api/
-│   │   └── weather/          # API route for weather data
 │   ├── components/
-│   │   ├── ui/              # shadcn/ui components
-│   │   ├── weather-card.tsx # Weather card component
-│   │   └── weather-icons.tsx # Weather icon mappings
-│   ├── globals.css          # Global styles
-│   ├── layout.tsx          # Root layout
-│   └── page.tsx            # Main page
+│   │   ├── ui/                 # shadcn/ui components
+│   │   │   ├── card.tsx        # Weather card component
+│   │   │   ├── icons.tsx       # Weather icon mappings
+│   │   │   └── ......
+│   │   └── theme-provider.tsx
+│   ├── privacy/    
+│   │   └── page.tsx            # Privacy policy page
+│   ├── terms/    
+│   │   └── page.tsx            # Terms page
+│   ├── globals.css             # Global styles
+│   ├── layout.tsx              # Root layout
+│   ├── loading.tsx             # loading
+│   └── page.tsx                # Main page
 ├── public/
-│   └── next.svg
-├── types/
-│   └── weather.ts          # TypeScript type definitions
+│   └── sky-background.png # Background image
 └── README.md
 ```
 
