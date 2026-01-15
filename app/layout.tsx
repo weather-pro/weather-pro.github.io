@@ -13,12 +13,12 @@ export const metadata: Metadata = {
   description:
     "Get accurate weather forecasts, current conditions, and next day predictions for your location",
   icons: {
-    icon: [
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
-      },
-    ],
+    // icon: [
+    //   {
+    //     url: "/icon.svg",
+    //     type: "image/svg+xml",
+    //   },
+    // ],
     apple: "/apple-icon.png",
   },
 };
